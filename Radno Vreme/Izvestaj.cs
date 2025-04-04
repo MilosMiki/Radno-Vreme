@@ -20,7 +20,18 @@ namespace Radno_Vreme
 
         private void Izvestaj_Load(object sender, EventArgs e)
         {
-            TextReader tr = new StreamReader("izvestaj.txt");
+            TextReader tr;
+            try
+            {
+                tr = new StreamReader("izvestaj.txt");
+            }
+            catch
+            {
+                // u primeru kada ne postoji fajl "izvestaj.txt"
+                TextWriter tw = new StreamWriter("izvestaj.txt");
+                tw.Close();
+                tr = new StreamReader("izvestaj.txt");
+            }
             string line;
             while ((line = tr.ReadLine()) != null)
             {

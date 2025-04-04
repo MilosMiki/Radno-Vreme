@@ -174,7 +174,18 @@ namespace Radno_Vreme
 
         private void RadnoVreme_Load(object sender, EventArgs e)
         {
-            TextReader tr = new StreamReader("baza.txt");
+            TextReader tr;
+            try
+            {
+                tr = new StreamReader("baza.txt");
+            }
+            catch
+            {
+                // u primeru kada ne postoji fajl "baza.txt"
+                TextWriter tw = new StreamWriter("baza.txt");
+                tw.Close();
+                tr = new StreamReader("baza.txt");
+            }
             //Ukupno RV
             numericUpDown9.Value = Convert.ToDecimal(tr.ReadLine());
             numericUpDown8.Value = Convert.ToDecimal(tr.ReadLine());
@@ -250,6 +261,11 @@ namespace Radno_Vreme
         {
             TotalniIzvestaj f = new TotalniIzvestaj();
             f.ShowDialog();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -238,14 +238,15 @@
             // 
             // numericUpDown10
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(264, 140);
+            this.numericUpDown10.DecimalPlaces = 2;
+            this.numericUpDown10.Location = new System.Drawing.Point(258, 140);
             this.numericUpDown10.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(47, 20);
+            this.numericUpDown10.Size = new System.Drawing.Size(53, 20);
             this.numericUpDown10.TabIndex = 15;
             this.numericUpDown10.Value = new decimal(new int[] {
             150,
@@ -261,7 +262,8 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 16;
-            this.label5.Text = "RSD/h:";
+            this.label5.Text = "EUR/h:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // button3
             // 
